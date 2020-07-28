@@ -4,7 +4,7 @@ resp_code=$(curl -s -o resp.log -w "%{http_code}" -XPOST ${INPUT_KALM_API_ADDRES
 
 resp=$(cat resp.log)
 
-echo $resp
+echo "response from webhook: $resp"
 echo "::set-output name=resp::$resp"
 
 if [ $resp_code == 200 ] 
