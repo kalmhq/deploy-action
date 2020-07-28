@@ -1,4 +1,4 @@
-name: 'kalm-deploy'
+name: 'kalm-deploy-action'
 description: 'call deploy callbacks in Kalm'
 inputs:
   KALM_API_ADDRESS:  # id of input
