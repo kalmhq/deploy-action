@@ -16,6 +16,9 @@ inputs:
   KALM_COMPONENT_IMG_TAG:
     description: ''
     required: true
+outputs:
+  resp: # id of output
+    description: 'The response we get from webhook'
 runs:
   using: 'docker'
   image: 'Dockerfile'
