@@ -9,7 +9,7 @@ cat <<EOF > data.json
 }
 EOF
 
-resp_code=$(curl -s -o resp.log -w "%{http_code}" -XPOST -H "Content-Type: application/json" -d "@data.json" ${INPUT_KALM_API_ADDRESS}/webhook/components)
+resp_code=$(curl -s -o resp.log -w "%{http_code}" -XPOST -H "Content-Type: application/json" -H "Authorization: Bearer ${INPUT_KALM_DEPLOY_KEY}" -d "@data.json" ${INPUT_KALM_API_ADDRESS}/webhook/components)
 
 rm data.json
 
@@ -18,7 +18,7 @@ resp=$(cat resp.log)
 echo "response from webhook: $resp"
 echo "::set-output name=resp::$resp"
 
-if [ $resp_code == 200 ] 
+if [ $resp_code == 200 ]
 then
     exit 0
 else
